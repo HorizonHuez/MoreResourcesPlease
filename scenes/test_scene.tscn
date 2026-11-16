@@ -1,0 +1,200 @@
+[gd_scene format=3 uid="uid://b011n8y6axiul"]
+
+[ext_resource type="Script" uid="uid://ddnc6hmtlpgu0" path="res://Scripts/mainmenu.gd" id="1_g7g4h"]
+[ext_resource type="Shader" uid="uid://mh4txhsyaxse" path="res://Scripts/mainmenu_bg.gdshader" id="2_7ddre"]
+[ext_resource type="Texture2D" uid="uid://chs6uaa6dlpok" path="res://graphics/MRP_logo.png" id="2_nd71p"]
+[ext_resource type="Shader" uid="uid://di4clnlkycpbm" path="res://Scripts/shader.gdshader" id="3_7ddre"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qjeyg"]
+noise_type = 0
+fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7ddre"]
+width = 1080
+height = 1080
+noise = SubResource("FastNoiseLite_qjeyg")
+seamless = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_57qmd"]
+shader = ExtResource("2_7ddre")
+shader_parameter/stars_on = true
+shader_parameter/timeScaleFactor = 0.04
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_7ddre")
+shader_parameter/colour_muiltiplier = Color(1, 1, 1, 1)
+shader_parameter/colour_muiltiplier2 = Color(0, 0.4666667, 1, 1)
+shader_parameter/brightness = 0.999999977648
+shader_parameter/clouds_resolution = 9.99999977648
+shader_parameter/clouds_intesity = 0.0
+shader_parameter/waveyness = 0.0
+shader_parameter/fragmentation = 7.0
+shader_parameter/distortion = 0.499999988824
+shader_parameter/clouds_alpha = 0.5
+shader_parameter/movement = 1.0
+shader_parameter/blur = 1.5499999653544
+shader_parameter/blur2 = 0.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yf5fn"]
+shader = ExtResource("3_7ddre")
+shader_parameter/top_width = 0.6000000285
+shader_parameter/horizon_y = 0.0
+shader_parameter/perspective_power = 1.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_g4v7s"]
+viewport_path = NodePath("mainmenu/Logo/SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7g4h"]
+bg_color = Color(0, 0, 0, 0.9529412)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 42
+corner_radius_bottom_right = 162
+corner_radius_bottom_left = 32
+corner_detail = 1
+
+[node name="test" type="Node2D" unique_id=1035985053]
+visible = false
+
+[node name="mainmenu" type="CanvasLayer" parent="." unique_id=63004828]
+script = ExtResource("1_g7g4h")
+
+[node name="ColorRect" type="ColorRect" parent="mainmenu" unique_id=298550412]
+material = SubResource("ShaderMaterial_57qmd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Logo" type="Control" parent="mainmenu" unique_id=1013444488]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 458.0
+grow_horizontal = 2
+
+[node name="LocoIcon" type="TextureRect" parent="mainmenu/Logo" unique_id=1402578454]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_nd71p")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LocoIcon" type="TextureRect" parent="mainmenu/Logo/LocoIcon" unique_id=259322996]
+material = SubResource("ShaderMaterial_yf5fn")
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -998.8889
+offset_top = 387.0
+offset_right = 998.8889
+offset_bottom = 635.0
+grow_horizontal = 2
+pivot_offset_ratio = Vector2(0.5, 0)
+texture = SubResource("ViewportTexture_g4v7s")
+stretch_mode = 5
+
+[node name="SubViewport" type="SubViewport" parent="mainmenu/Logo" unique_id=1567215936]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(1450, 180)
+
+[node name="Label" type="Label" parent="mainmenu/Logo/SubViewport" unique_id=1837769899]
+offset_right = 1459.0
+offset_bottom = 179.0
+theme_override_font_sizes/font_size = 125
+text = "More Resources, Please!"
+
+[node name="Cont" type="Control" parent="mainmenu" unique_id=713746612]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="VBoxContainer" parent="mainmenu/Cont" unique_id=1321476451]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -325.0
+offset_top = -413.0
+offset_right = 325.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 93
+
+[node name="Start" type="Button" parent="mainmenu/Cont/Container" unique_id=138141171]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "btn_start"
+
+[node name="Settings" type="Button" parent="mainmenu/Cont/Container" unique_id=1143544284]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "btn_settings"
+
+[node name="Panel" type="Panel" parent="mainmenu/Cont" unique_id=1964965397]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 256.0
+offset_top = 144.0
+offset_right = -256.0
+offset_bottom = -144.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g7g4h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="mainmenu/Cont/Panel" unique_id=1401437283]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 69.0
+offset_top = 69.0
+offset_right = -69.0
+offset_bottom = -69.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 85
+alignment = 1
+
+[node name="Button" type="Button" parent="mainmenu/Cont/Panel/VBoxContainer" unique_id=104356157]
+layout_mode = 2
+theme_override_font_sizes/font_size = 78
+text = "BTN_Language"
+
+[node name="Label" type="Label" parent="mainmenu/Cont/Panel/VBoxContainer" unique_id=1531651988]
+layout_mode = 2
+theme_override_font_sizes/font_size = 44
+text = "LANGUAGE_DISPLAY"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="mainmenu/Cont/Panel" unique_id=1062526963]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 57.0
+offset_right = 336.69998
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 32
+text = "BTN_Back"
+
+[connection signal="pressed" from="mainmenu/Cont/Container/Start" to="mainmenu" method="_on_start_pressed"]
+[connection signal="pressed" from="mainmenu/Cont/Container/Settings" to="mainmenu" method="_on_settings_pressed"]
+[connection signal="pressed" from="mainmenu/Cont/Panel/VBoxContainer/Button" to="mainmenu" method="_on_language_pressed"]
+[connection signal="pressed" from="mainmenu/Cont/Panel/Button" to="mainmenu" method="_on_button_pressed"]

@@ -1,0 +1,252 @@
+[gd_scene format=3 uid="uid://b0ntoma712abt"]
+
+[ext_resource type="Script" uid="uid://catfdyv5s07cl" path="res://main.gd" id="1_glv2v"]
+[ext_resource type="Texture2D" uid="uid://bw81lx73c7gwy" path="res://graphics/char/char_test_bust_04.png" id="2_nxtc6"]
+[ext_resource type="Texture2D" uid="uid://dw4spdlb5fpbs" path="res://graphics/char/procedural/char_female_base.png" id="2_rarhs"]
+[ext_resource type="Texture2D" uid="uid://c0kwpc0mkdd4q" path="res://icons/canadian.png" id="2_wp0k4"]
+[ext_resource type="Texture2D" uid="uid://bocjct3ng85cf" path="res://icons/conae.png" id="3_bjd11"]
+[ext_resource type="Texture2D" uid="uid://dy3oxndas8cea" path="res://graphics/char/procedural/char_female_face.png" id="3_c01mt"]
+[ext_resource type="Texture2D" uid="uid://bt4e8gppgtykd" path="res://graphics/char/procedural/char_female_hair_01.png" id="3_vcsgt"]
+[ext_resource type="Texture2D" uid="uid://mmclyiin6s7f" path="res://graphics/char/procedural/char_female_cloth.png" id="4_c01mt"]
+[ext_resource type="Texture2D" uid="uid://d1n0gqv1kv6id" path="res://graphics/char/procedural/char_female_face_iris.png" id="4_nxtc6"]
+[ext_resource type="Texture2D" uid="uid://bl5apm0fb5tga" path="res://icons/european.png" id="4_qmy6f"]
+[ext_resource type="Texture2D" uid="uid://cyiesrqt60exm" path="res://icons/spanish.png" id="5_mwfav"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uu6xs"]
+content_margin_left = 30.0
+content_margin_top = 30.0
+content_margin_right = 30.0
+content_margin_bottom = 30.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvslj"]
+bg_color = Color(0, 0, 0, 0.4509804)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0.4666667, 1, 1)
+border_blend = true
+corner_radius_bottom_right = 237
+corner_radius_bottom_left = 186
+expand_margin_top = 45.0
+
+[node name="main_ui" type="CanvasLayer" unique_id=1909167550]
+
+[node name="Control" type="Control" parent="." unique_id=1348565717 node_paths=PackedStringArray("_char_base_body", "_char_face", "_char_iris", "_char_hair", "_char_clothing")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_glv2v")
+company_logos = Array[Texture2D]([ExtResource("2_wp0k4"), ExtResource("3_bjd11"), ExtResource("4_qmy6f"), ExtResource("5_mwfav")])
+_char_base_body = NodePath("MarginContainer/VBoxContainer/CharacterHeader/Character_Client_BodyBase")
+_char_face = NodePath("MarginContainer/VBoxContainer/CharacterHeader/Character_Client_BodyBase/Client_Face")
+_char_iris = NodePath("MarginContainer/VBoxContainer/CharacterHeader/Character_Client_BodyBase/Client_Face/Client_Iris")
+_char_hair = NodePath("MarginContainer/VBoxContainer/CharacterHeader/Character_Client_BodyBase/Client_Hair")
+_char_clothing = NodePath("MarginContainer/VBoxContainer/CharacterHeader/Character_Client_BodyBase/Client_Clothing")
+_hairs = Array[Texture2D]([ExtResource("3_vcsgt")])
+
+[node name="Background" type="ColorRect" parent="Control" unique_id=255654413]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.043137256, 0.05490196, 0.078431375, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=976083577]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1080.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_top = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=1128320667]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 2
+
+[node name="CharacterHeader" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=278218076]
+show_behind_parent = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 30
+
+[node name="Directora" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/CharacterHeader" unique_id=610501125]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+texture = ExtResource("2_nxtc6")
+expand_mode = 1
+stretch_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/CharacterHeader" unique_id=602001527]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = -20
+alignment = 2
+
+[node name="LblCharRole" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/CharacterHeader/VBoxContainer" unique_id=1039013449]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "role"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="LblCharName" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/CharacterHeader/VBoxContainer" unique_id=1907003895]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "name"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="Character_Client_BodyBase" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/CharacterHeader" unique_id=699353661]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+texture = ExtResource("2_rarhs")
+expand_mode = 1
+stretch_mode = 2
+flip_h = true
+
+[node name="Client_Face" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/CharacterHeader/Character_Client_BodyBase" unique_id=1149982299]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_c01mt")
+expand_mode = 1
+stretch_mode = 2
+flip_h = true
+
+[node name="Client_Iris" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/CharacterHeader/Character_Client_BodyBase/Client_Face" unique_id=1006497610]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_nxtc6")
+expand_mode = 1
+stretch_mode = 2
+flip_h = true
+
+[node name="Client_Hair" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/CharacterHeader/Character_Client_BodyBase" unique_id=1530377836]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_vcsgt")
+expand_mode = 1
+stretch_mode = 2
+flip_h = true
+
+[node name="Client_Clothing" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/CharacterHeader/Character_Client_BodyBase" unique_id=1512325759]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_c01mt")
+expand_mode = 1
+stretch_mode = 2
+flip_h = true
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=1262333621]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/PanelContainer" unique_id=154671997]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uu6xs")
+bbcode_enabled = true
+text = "test"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+justification_flags = 160
+
+[node name="ChoicesContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=1579069505]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="TopBar" type="HBoxContainer" parent="Control" unique_id=1176249549]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 67.0
+theme_override_constants/separation = 17
+
+[node name="LblMass" type="RichTextLabel" parent="Control/TopBar" unique_id=1571840033]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_rvslj")
+bbcode_enabled = true
+text = "B"
+fit_content = true
+scroll_active = false
+autowrap_trim_flags = 0
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LblBudget" type="RichTextLabel" parent="Control/TopBar" unique_id=1861308091]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_rvslj")
+bbcode_enabled = true
+text = "A"
+fit_content = true
+scroll_active = false
+autowrap_trim_flags = 0
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LblScience" type="RichTextLabel" parent="Control/TopBar" unique_id=814967673]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_rvslj")
+bbcode_enabled = true
+text = "C"
+fit_content = true
+scroll_active = false
+autowrap_trim_flags = 0
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LblPower" type="RichTextLabel" parent="Control/TopBar" unique_id=858009551]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_rvslj")
+bbcode_enabled = true
+text = "D"
+fit_content = true
+scroll_active = false
+autowrap_trim_flags = 0
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1

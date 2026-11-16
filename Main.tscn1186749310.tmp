@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://b0ntoma712abt"]
+
+[ext_resource type="Script" uid="uid://catfdyv5s07cl" path="res://main.gd" id="1_glv2v"]
+[ext_resource type="Texture2D" uid="uid://c5jgifbudf4w1" path="res://IMG/112x112.png" id="2_uu6xs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uu6xs"]
+content_margin_left = 30.0
+content_margin_top = 30.0
+content_margin_right = 30.0
+content_margin_bottom = 30.0
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1909167550]
+
+[node name="Control" type="Control" parent="." unique_id=1348565717]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_glv2v")
+
+[node name="Background" type="ColorRect" parent="Control" unique_id=255654413]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.043137256, 0.05490196, 0.078431375, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=976083577]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=1128320667]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="TopBar" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=1176249549]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LblBudget" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/TopBar" unique_id=1861308091]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "A"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="LblMass" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/TopBar" unique_id=1571840033]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "B"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="LblScience" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/TopBar" unique_id=814967673]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "C"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="LblPower" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/TopBar" unique_id=858009551]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "D"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="CharacterHeader" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=278218076]
+layout_mode = 2
+
+[node name="Avatar" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/CharacterHeader" unique_id=1322813871]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("2_uu6xs")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/CharacterHeader/Avatar" unique_id=602001527]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LblCharName" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/CharacterHeader/Avatar/VBoxContainer" unique_id=1907003895]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="LblCharRole" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/CharacterHeader/Avatar/VBoxContainer" unique_id=1039013449]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=1262333621]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/PanelContainer" unique_id=154671997]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uu6xs")
+bbcode_enabled = true
+text = "test"
+
+[node name="ChoicesContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=1579069505]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 15
